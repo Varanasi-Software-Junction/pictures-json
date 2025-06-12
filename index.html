@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pics</title>
 </head>
+
 <body>
-    
+    <label>Red <input onchange="updateColor()" onkeyup="updateColor()" type="number" id="red" value="0" min="0"
+            max="255"></label>
+    <label>Green <input onchange="updateColor()" onkeyup="updateColor()" type="number" id="green" value="0" min="0"
+            max="255"></label>
+    <label>Blue <input onchange="updateColor()" onkeyup="updateColor()" type="number" id="blue" value="0" min="0"
+            max="255"></label>
+    <br>
+    <div id="colorBox" style="width: 100px; height: 100px; background-color: rgb(0, 0, 0);color:  rgb(255, 255, 255);;">
+        Colors
+    </div>
+    <script>
+        const redInput = document.getElementById('red');
+        const greenInput = document.getElementById('green');
+        const blueInput = document.getElementById('blue');
+        const colorBox = document.getElementById('colorBox');
+
+        function updateColor() {
+            const r = redInput.value;
+            const g = greenInput.value;
+            const b = blueInput.value;
+            console.log(r, g, b);
+            colorBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            colorBox.style.color = `rgb(${255 - r}, ${255 - g}, ${255 - b})`;
+        }
+
+    </script>
+    <h1>Welcome to Pics</h1>
 </body>
+
 </html>
