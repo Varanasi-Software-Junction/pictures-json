@@ -11,8 +11,8 @@
             "correctanswer": 3
         },
         {
-            "qno": 1,
-            "question": "What is the capital of Delhi",
+            "qno": 2,
+            "question": "What is the capital of India",
             "opta": "Kyoto",
             "optb": "Delhi",
             "optc": "Tokyo",
@@ -20,7 +20,7 @@
             "correctanswer": 2
         },
         {
-            "qno": 1,
+            "qno": 3,
             "question": "What is the capital of United State",
             "opta": "Washington",
             "optb": "Hiroshima",
