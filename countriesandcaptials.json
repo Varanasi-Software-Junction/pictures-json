@@ -1,0 +1,32 @@
+{
+    "quizname": "Countries and Capitals",
+    "questions": [
+        {
+            "qno": 1,
+            "question": "What is the capital of Japan",
+            "opta": "Kyoto",
+            "optb": "Hiroshima",
+            "optc": "Tokyo",
+            "optd": "Yokohama",
+            "correctanswer": 3
+        },
+        {
+            "qno": 1,
+            "question": "What is the capital of Delhi",
+            "opta": "Kyoto",
+            "optb": "Delhi",
+            "optc": "Tokyo",
+            "optd": "Yokohama",
+            "correctanswer": 2
+        },
+        {
+            "qno": 1,
+            "question": "What is the capital of United State",
+            "opta": "Washington",
+            "optb": "Hiroshima",
+            "optc": "Tokyo",
+            "optd": "Yokohama",
+            "correctanswer": 1
+        }
+    ]
+}
