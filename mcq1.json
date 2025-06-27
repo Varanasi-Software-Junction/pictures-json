@@ -1,0 +1,29 @@
+[
+  {
+    "qno": 1,
+    "question": "What is Python?",
+    "opa": "Programming Language",
+    "opb": "A game",
+    "opc": "A movie",
+    "opd": "None of these",
+    "correctanswer": "1"
+  },
+  {
+    "qno": 2,
+    "question": "Who developed C?",
+    "opa": "Dennis Ritchie",
+    "opb": "Bjarne Stroustrup",
+    "opc": "Guido van Rossum",
+    "opd": "James Gosling",
+    "correctanswer": "1"
+  },
+  {
+    "qno": 3,
+    "question": "Which tag is used to create a password box in HTML?",
+    "opa": "<link>",
+    "opb": "<a>",
+    "opc": "<href>",
+    "opd": "<input type='password'>",
+    "correctanswer": "4"
+  }
+]
