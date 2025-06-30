@@ -1,14 +1,14 @@
 [
   {
 "quizno":1,
-  "quizname":"Q1",
+  "quizname":"Quiz One",
   "url":"https://varanasi-software-junction.github.io/vsjpictures/mcq.json"
   }
   ,
   
   {
 "quizno":2,
-  "quizname":"Q2",
+  "quizname":"Quiz Two",
   "url":"https://varanasi-software-junction.github.io/vsjpictures/mcq1.json"
   }
   
