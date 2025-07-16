@@ -1,0 +1,12 @@
+{
+    "quizzes": [
+        {
+            "subject": "Maths",
+            "url": "mathsurl"
+        },
+        {
+            "subject": "Sports",
+            "url": "sportsurl"
+        }
+    ]
+}
