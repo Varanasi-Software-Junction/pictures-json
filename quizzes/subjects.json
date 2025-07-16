@@ -2,7 +2,7 @@
     "quizzes": [
         {
             "subject": "Maths",
-            "url": "mathsurl"
+            "url": "https://varanasi-software-junction.github.io/pictures-json/quizzes/mathsquizzes.json"
         },
         {
             "subject": "Sports",
