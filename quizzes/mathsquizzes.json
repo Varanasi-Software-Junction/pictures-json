@@ -1,12 +1,12 @@
 {
     "quizzes": [
         {
-            "subject": "Maths",
-            "url": "mathsurl"
+            "subject": "Trigonometry",
+            "url": "trigonometryurl"
         },
         {
-            "subject": "Sports",
-            "url": "sportsurl"
+            "subject": "Algebra",
+            "url": "algebraurl"
         }
     ]
 }
