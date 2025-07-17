@@ -11,7 +11,7 @@ const state = {
 };
 
 function loadSubjects() {
-  fetch('https://yourusername.github.io/data/subjects.json')
+  fetch('https://varanasi-software-junction.github.io/pictures-json/quizzes/subjects.json')
     .then(res => res.json())
     .then(subjects => {
       screen.innerHTML = '<h2>Select Subject</h2>';
