@@ -1,12 +1,7 @@
-{
-    "quizzes": [
-        {
-            "subject": "Maths",
-            "url": "https://varanasi-software-junction.github.io/pictures-json/quizzes/mathsquizzes.json"
-        },
-        {
-            "subject": "Sports",
-            "url": "https://varanasi-software-junction.github.io/pictures-json/quizzes/sportsquizzes.json"
-        }
-    ]
-}
+[
+  {
+    "subjectNo": 1,
+    "subjectName": "JavaScript",
+    "quizListUrl": "https://yourusername.github.io/data/js-quizzes.json"
+  }
+]
