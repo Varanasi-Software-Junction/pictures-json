@@ -4,4 +4,10 @@
     "subjectName": "JavaScript",
     "quizListUrl": "https://varanasi-software-junction.github.io/pictures-json/quizzes/js-quizzes.json"
   }
+  , 
+   {
+    "subjectNo": 2,
+    "subjectName": "Cities and Capitals",
+    "quizListUrl": "https://varanasi-software-junction.github.io/pictures-json/quizzes/js-quizzes.json"
+  }
 ]
