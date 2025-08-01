@@ -106,6 +106,12 @@
 
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="Search posts...">
+    <select id="sortSelect" onchange="renderCards()" style="margin-left: 1rem;">
+  <option value="default">Sort By</option>
+  <option value="az">Title A–Z</option>
+  <option value="za">Title Z–A</option>
+</select>
+
   </div>
 
   <div class="filters" id="categoryFilters">
@@ -155,6 +161,8 @@
       const filtered = data.filter(item => {
         const matchesText = item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query);
         const matchesCategory = currentCategory === "All" || item.category === currentCategory;
+
+       
         return matchesText && matchesCategory;
       });
 
@@ -176,6 +184,9 @@
             <a href="${item.link}" target="_blank">Open</a>
           </div>
         `;
+ const sortValue = document.getElementById("sortSelect")?.value;
+if (sortValue === "az") filtered.sort((a, b) => a.title.localeCompare(b.title));
+if (sortValue === "za") filtered.sort((a, b) => b.title.localeCompare(a.title));
 
         cardContainer.appendChild(card);
       });
