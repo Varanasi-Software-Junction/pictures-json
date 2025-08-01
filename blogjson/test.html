@@ -1,182 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Search & Filter Page</title>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #e0f2f1;
-      color: #004d40;
-      margin: 0;
-      padding: 2rem;
-    }
+    <meta charset="UTF-8">
+    <title>Search & Filter Page</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #e0f2f1;
+            color: #004d40;
+            margin: 0;
+            padding: 2rem;
+        }
 
-    h1 {
-      text-align: center;
-      color: #00695c;
-    }
+        h1 {
+            text-align: center;
+            color: #00695c;
+        }
 
-    .search-box {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
+        .search-box {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
 
-    input[type="text"] {
-      padding: 0.5rem;
-      width: 80%;
-      max-width: 400px;
-      border: 1px solid #009688;
-      border-radius: 4px;
-    }
+        input[type="text"] {
+            padding: 0.5rem;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #009688;
+            border-radius: 4px;
+        }
 
-    .filters {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 1rem 0;
-      gap: 0.5rem;
-    }
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            gap: 0.5rem;
+        }
 
-    .filters button {
-      padding: 0.5rem 1rem;
-      background-color: #009688;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-    }
+        .filters button {
+            padding: 0.5rem 1rem;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
 
-    .filters button.active {
-      background-color: #004d40;
-    }
+        .filters button.active {
+            background-color: #004d40;
+        }
 
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-      padding: 1rem 0;
-    }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            padding: 1rem 0;
+        }
 
-    .card {
-      background: #ffffff;
-      border: 1px solid #b2dfdb;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeIn 0.6s forwards;
-    }
+        .card {
+            background: #ffffff;
+            border: 1px solid #b2dfdb;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.6s forwards;
+        }
 
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
 
-    .card-content {
-      padding: 1rem;
-    }
+        .card-content {
+            padding: 1rem;
+        }
 
-    .card-content h3 {
-      margin: 0 0 0.5rem;
-      color: #00796b;
-    }
+        .card-content h3 {
+            margin: 0 0 0.5rem;
+            color: #00796b;
+        }
 
-    .card-content p {
-      font-size: 0.9rem;
-    }
+        .card-content p {
+            font-size: 0.9rem;
+        }
 
-    .hidden {
-      display: none !important;
-    }
+        .hidden {
+            display: none !important;
+        }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <h1>Explore Posts</h1>
+    <h1>Explore Posts</h1>
+    <div>
+        <button onclick="toggleDarkMode()" style="position:fixed;top:1rem;right:1rem;">🌓</button>
 
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search posts...">
-    <select id="sortSelect" onchange="renderCards()" style="margin-left: 1rem;">
-  <option value="default">Sort By</option>
-  <option value="az">Title A–Z</option>
-  <option value="za">Title Z–A</option>
-</select>
+    </div>
+    <h1 style="text-align:center; margin-top:-1rem; color:#00796b;">
+        Filter posts by topic or search by keyword
+    </h1>
 
-  </div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search posts...">
+        <select id="sortSelect" onchange="renderCards()" style="margin-left: 1rem;">
+            <option value="default">Sort By</option>
+            <option value="az">Title A–Z</option>
+            <option value="za">Title Z–A</option>
+        </select>
 
-  <div class="filters" id="categoryFilters">
-    <!-- Dynamic category buttons will appear here -->
-  </div>
+    </div>
 
-  <div class="card-container" id="cardContainer">
-    <!-- Cards will be loaded here -->
-  </div>
+    <div class="filters" id="categoryFilters">
+        <!-- Dynamic category buttons will appear here -->
+    </div>
 
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    const cardContainer = document.getElementById("cardContainer");
-    const categoryFilters = document.getElementById("categoryFilters");
+    <div class="card-container" id="cardContainer">
+        <!-- Cards will be loaded here -->
+    </div>
 
-    let data = [];
-    let currentCategory = "All";
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const cardContainer = document.getElementById("cardContainer");
+        const categoryFilters = document.getElementById("categoryFilters");
 
-    // Fetch JSON data hosted on GitHub
-    fetch("https://varanasi-software-junction.github.io/pictures-json/blogjson/posts.json")
-      .then(response => response.json())
-      .then(json => {
-        data = json;
-        renderFilters();
-        renderCards();
-      });
+        let data = [];
+        let currentCategory = "All";
 
-    function renderFilters() {
-      const categories = ["All", ...new Set(data.map(item => item.category))];
-      categoryFilters.innerHTML = categories.map(cat => `
+        // Fetch JSON data hosted on GitHub
+        fetch("https://varanasi-software-junction.github.io/pictures-json/blogjson/posts.json")
+            .then(response => response.json())
+            .then(json => {
+                data = json;
+                renderFilters();
+                renderCards();
+            });
+
+        function renderFilters() {
+            const categories = ["All", ...new Set(data.map(item => item.category))];
+            categoryFilters.innerHTML = categories.map(cat => `
         <button class="${cat === "All" ? "active" : ""}" onclick="filterByCategory('${cat}')">${cat}</button>
       `).join('');
-    }
+        }
 
-    function filterByCategory(category) {
-      currentCategory = category;
-      document.querySelectorAll(".filters button").forEach(btn => {
-        btn.classList.toggle("active", btn.textContent === category);
-      });
-      renderCards();
-    }
+        function filterByCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll(".filters button").forEach(btn => {
+                btn.classList.toggle("active", btn.textContent === category);
+            });
+            renderCards();
+        }
 
-    function renderCards() {
-      const query = searchInput.value.toLowerCase();
-      cardContainer.innerHTML = "";
+        function toggleDarkMode() {
+            // alert();
+            document.body.classList.toggle("dark-mode");
+        }
 
-      const filtered = data.filter(item => {
-        const matchesText = item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query);
-        const matchesCategory = currentCategory === "All" || item.category === currentCategory;
+        function renderCards() {
+            const query = searchInput.value.toLowerCase();
+            cardContainer.innerHTML = "";
 
-       
-        return matchesText && matchesCategory;
-      });
+            const filtered = data.filter(item => {
+                const matchesText = item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query);
+                const matchesCategory = currentCategory === "All" || item.category === currentCategory;
 
-      if (filtered.length === 0) {
-        cardContainer.innerHTML = "<p>No results found.</p>";
-        return;
-      }
 
-      filtered.forEach((item, i) => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.style.animationDelay = `${i * 0.05}s`;
+                return matchesText && matchesCategory;
+            });
 
-        card.innerHTML = `
+            if (filtered.length === 0) {
+                cardContainer.innerHTML = "<p>No results found.</p>";
+                return;
+            }
+
+            filtered.forEach((item, i) => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.style.animationDelay = `${i * 0.05}s`;
+
+                card.innerHTML = `
           <img src="${item.image}" alt="${item.title}">
           <div class="card-content">
             <h3>${item.title}</h3>
@@ -184,16 +198,34 @@
             <a href="${item.link}" target="_blank">Open</a>
           </div>
         `;
- const sortValue = document.getElementById("sortSelect")?.value;
-if (sortValue === "az") filtered.sort((a, b) => a.title.localeCompare(b.title));
-if (sortValue === "za") filtered.sort((a, b) => b.title.localeCompare(a.title));
+                const sortValue = document.getElementById("sortSelect")?.value;
+                if (sortValue === "az") filtered.sort((a, b) => a.title.localeCompare(b.title));
+                if (sortValue === "za") filtered.sort((a, b) => b.title.localeCompare(a.title));
 
-        cardContainer.appendChild(card);
-      });
-    }
+                cardContainer.appendChild(card);
+            });
+        }
 
-    searchInput.addEventListener("input", renderCards);
-  </script>
+        searchInput.addEventListener("input", renderCards);
+    </script>
+    <style>
+        .dark-mode {
+            background-color: #263238;
+            color: #ffffff;
+        }
 
+        .dark-mode .card {
+            background: #37474f;
+            border-color: #455a64;
+        }
+
+        .dark-mode input,
+        .dark-mode select {
+            background: #455a64;
+            color: #fff;
+            border-color: #607d8b;
+        }
+    </style>
 </body>
+
 </html>
