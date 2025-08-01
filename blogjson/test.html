@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search & Filter Page</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #e0f2f1;
+      color: #004d40;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00695c;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 400px;
+      border: 1px solid #009688;
+      border-radius: 4px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+      gap: 0.5rem;
+    }
+
+    .filters button {
+      padding: 0.5rem 1rem;
+      background-color: #009688;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .filters button.active {
+      background-color: #004d40;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #b2dfdb;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeIn 0.6s forwards;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h3 {
+      margin: 0 0 0.5rem;
+      color: #00796b;
+    }
+
+    .card-content p {
+      font-size: 0.9rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Explore Posts</h1>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search posts...">
+  </div>
+
+  <div class="filters" id="categoryFilters">
+    <!-- Dynamic category buttons will appear here -->
+  </div>
+
+  <div class="card-container" id="cardContainer">
+    <!-- Cards will be loaded here -->
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const cardContainer = document.getElementById("cardContainer");
+    const categoryFilters = document.getElementById("categoryFilters");
+
+    let data = [];
+    let currentCategory = "All";
+
+    // Fetch JSON data hosted on GitHub
+    fetch("https://varanasi-software-junction.github.io/pictures-json/blogjson/posts.json")
+      .then(response => response.json())
+      .then(json => {
+        data = json;
+        renderFilters();
+        renderCards();
+      });
+
+    function renderFilters() {
+      const categories = ["All", ...new Set(data.map(item => item.category))];
+      categoryFilters.innerHTML = categories.map(cat => `
+        <button class="${cat === "All" ? "active" : ""}" onclick="filterByCategory('${cat}')">${cat}</button>
+      `).join('');
+    }
+
+    function filterByCategory(category) {
+      currentCategory = category;
+      document.querySelectorAll(".filters button").forEach(btn => {
+        btn.classList.toggle("active", btn.textContent === category);
+      });
+      renderCards();
+    }
+
+    function renderCards() {
+      const query = searchInput.value.toLowerCase();
+      cardContainer.innerHTML = "";
+
+      const filtered = data.filter(item => {
+        const matchesText = item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query);
+        const matchesCategory = currentCategory === "All" || item.category === currentCategory;
+        return matchesText && matchesCategory;
+      });
+
+      if (filtered.length === 0) {
+        cardContainer.innerHTML = "<p>No results found.</p>";
+        return;
+      }
+
+      filtered.forEach((item, i) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.style.animationDelay = `${i * 0.05}s`;
+
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">
+          <div class="card-content">
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+            <a href="${item.link}" target="_blank">Open</a>
+          </div>
+        `;
+
+        cardContainer.appendChild(card);
+      });
+    }
+
+    searchInput.addEventListener("input", renderCards);
+  </script>
+
+</body>
+</html>
