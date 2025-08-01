@@ -1,37 +1,37 @@
 [
-      {
-        title: "Models in Django",
-        link: "https://varanasisoftwarejunction.blogspot.com/2025/07/django-models.html",
-        desc: "Learn Django Models,connect to MySQL, forms, Migrations and more.",
-        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjBV4BbPQgDmiOleGL-9BOvXPDTs_uzFN6-PyHV6P3Uy3o3bYacjsZCMgu7BphCxlAFpK0PEOPjM7ZYarSXjeu0NGG3QbqPZWWT-0Il5EUTxBLK5gXipao7j0quZw-majkdw_UX3VlR01WElA2FPx92WtjHIpOVo7mV4DykKKykH-0GeU4qyqrTmHStZw/s1600/Django%20Models.PNG",
-        category: "Python"
-      },
-      {
-        title: "Dart -1 I/O and Arithmetic Operators",
-        link: "https://varanasisoftwarejunction.blogspot.com/2025/07/dart-1.html",
-        desc: "Beginner-friendly Dart tutorial with code samples and assignments.Input, output and Arithmetic Operators",
-        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi71s0nKPJucXEG0UMrLrYh8510hLmuelBsz4-BxU7N35_GLWCEZSBYxF8xo3m21u0EfXv_9TApKL-XNHemBCs5RL9PiBKinnm5oYQwWrDj-K4ka0czpAirjV_P6aIKiVfsw-FxySFOvCdbDWFrhYiwiTnFOzOiRLTi37IGSXD379R0tr9YMhZKsCtjorQ/s1600/Dart-Flutter.PNG",
-        category: "Dart"
-      },
-      {
-        title: "Dart Conditional Statements: if, else, ternary & switch",
-        link: "https://varanasisoftwarejunction.blogspot.com/2025/07/dart-2-relational-operators-and.html",
-        desc: "Dart Conditional Statements: if, else, ternary & switch",
-        image: "https://varanasi-software-junction.github.io/pictures-json/blogpics/Dart-Conditionals.PNG",
-        category: "Dart"
-      },
-      {
-        title: "CSS 3D Effects",
-        link: "https://varanasisoftwarejunction.blogspot.com/2025/07/3d-css.html",
-        desc: "Add stunning 3D effects and depth to your user interface.",
-        image: "https://varanasi-software-junction.github.io/pictures-json/blogpics/CSS 3D.PNG",   
-        category: "CSS"
-      },
-      {
-        title: "Integrate Firebase with Flutter – Part 1",
-        link: "https://varanasisoftwarejunction.blogspot.com/2025/07/firebase-in-flutter-1.html",
-        desc: "Integrate Firebase with Flutter – Part 1",
-        image: "https://varanasi-software-junction.github.io/pictures-json/blogpics/firebaseinflutter.PNG",
-        category: "Dart"
-      }
-    ]
+    {
+        "title": "Models in Django",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/django-models.html",
+        "desc": "Learn Django Models,connect to MySQL, forms, Migrations and more.",
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjBV4BbPQgDmiOleGL-9BOvXPDTs_uzFN6-PyHV6P3Uy3o3bYacjsZCMgu7BphCxlAFpK0PEOPjM7ZYarSXjeu0NGG3QbqPZWWT-0Il5EUTxBLK5gXipao7j0quZw-majkdw_UX3VlR01WElA2FPx92WtjHIpOVo7mV4DykKKykH-0GeU4qyqrTmHStZw/s1600/Django%20Models.PNG",
+        "category": "Python"
+    },
+    {
+        "title": "Dart -1 I/O and Arithmetic Operators",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/dart-1.html",
+        "desc": "Beginner-friendly Dart tutorial with code samples and assignments.Input, output and Arithmetic Operators",
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi71s0nKPJucXEG0UMrLrYh8510hLmuelBsz4-BxU7N35_GLWCEZSBYxF8xo3m21u0EfXv_9TApKL-XNHemBCs5RL9PiBKinnm5oYQwWrDj-K4ka0czpAirjV_P6aIKiVfsw-FxySFOvCdbDWFrhYiwiTnFOzOiRLTi37IGSXD379R0tr9YMhZKsCtjorQ/s1600/Dart-Flutter.PNG",
+        "category": "Dart"
+    },
+    {
+        "title": "Dart Conditional Statements: if, else, ternary & switch",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/dart-2-relational-operators-and.html",
+        "desc": "Dart Conditional Statements: if, else, ternary & switch",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Dart-Conditionals.PNG",
+        "category": "Dart"
+    },
+    {
+        "title": "CSS 3D Effects",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/3d-css.html",
+        "desc": "Add stunning 3D effects and depth to your user interface.",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/CSS 3D.PNG",
+        "category": "CSS"
+    },
+    {
+        "title": "Integrate Firebase with Flutter – Part 1",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/firebase-in-flutter-1.html",
+        "desc": "Integrate Firebase with Flutter – Part 1",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/firebaseinflutter.PNG",
+        "category": "Dart"
+    }
+]
