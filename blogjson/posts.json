@@ -4,7 +4,7 @@
         "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/django-models.html",
         "desc": "Learn Django Models,connect to MySQL, forms, Migrations and more.",
         "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjBV4BbPQgDmiOleGL-9BOvXPDTs_uzFN6-PyHV6P3Uy3o3bYacjsZCMgu7BphCxlAFpK0PEOPjM7ZYarSXjeu0NGG3QbqPZWWT-0Il5EUTxBLK5gXipao7j0quZw-majkdw_UX3VlR01WElA2FPx92WtjHIpOVo7mV4DykKKykH-0GeU4qyqrTmHStZw/s1600/Django%20Models.PNG",
-        "category": "Python"
+        "category": "Django-Python"
     },
     {
         "title": "Dart -1 I/O and Arithmetic Operators",
@@ -33,5 +33,20 @@
         "desc": "Integrate Firebase with Flutter – Part 1",
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/firebaseinflutter.PNG",
         "category": "Dart"
+    }
+    ,
+    {
+        "title": "Authentication in Django with MySQL-1",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/08/authentication-in-django-1.html",
+        "desc": "Django comes with a powerful built-in authentication system that handles user login, logout, registration, password management, and access control. This blog post will walk you through the basic setup of Django authentication using MySQL as the database backend.",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Authentication in Django.PNG",
+        "category": "Django-Python"
+    } ,
+    {
+        "title": "Authentication in Django with MySQL-2",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/08/authentication-in-django-2-roles-added.html",
+        "desc": "Django Authentication with Roles (Admin, Seller, Customer)This is a continuation of our previous post on Django authentication. We now add user roles using Django’s",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Authentication in Django 2.PNG",
+        "category": "Django-Python"
     }
 ]
