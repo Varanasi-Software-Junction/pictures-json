@@ -49,4 +49,12 @@
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Authentication in Django 2.PNG",
         "category": "Django-Python"
     }
+     ,
+    {
+        "title": "JavaScript Reel Maker – Make Reels Online",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/08/javascript-reel-maker.html",
+        "desc": "JavaScript Reel Maker – Make Reels Online",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/JavaScript Reel Maker.PNG",
+        "category": "JavaScript"
+    }
 ]
