@@ -57,4 +57,13 @@
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/JavaScript Reel Maker.PNG",
         "category": "JavaScript"
     }
+
+     ,
+    {
+        "title": "Important SQL Links.",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2023/01/sql-sequel-posts.html",
+        "desc": "Create table,insert into, update, delete and all variations of select",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/SQL Important Links.PNG",
+        "category": "SQL"
+    }
 ]
