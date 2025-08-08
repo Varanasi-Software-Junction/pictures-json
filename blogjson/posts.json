@@ -86,7 +86,7 @@
     }
      ,
     {
-        "title": "Introduction to MongoDB and Compass",
+        "title": "Mastering MongoDB Queries: Insert, Find, Update, Delete and More",
         "link": "https://varanasisoftwarejunction.blogspot.com/2025/08/mongo-db-queries.html",
         "desc": "Mastering MongoDB Queries: Insert, Find, Update, Delete and More MongoDB is a powerful NoSQL database that uses a flexible, document-based model. In this guide, you’ll learn how to use key MongoDB queries including: Insert, Find, Update, and Delete. This is perfect for beginners and those switching from SQL to NoSQL",
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Starting Mongo Db Queries.PNG",
