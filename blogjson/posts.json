@@ -66,4 +66,30 @@
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/SQL Important Links.PNG",
         "category": "SQL"
     }
+
+
+      ,
+    {
+        "title": "How to Install and Use MongoDB on Windows",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/starting-mongo-db.html",
+        "desc": "MongoDB is a popular NoSQL database used for storing JSON-like documents. If you’re a Windows user and want to start working with MongoDB, this guide is for you. We’ll walk through installation, setup, and basic usage.Keywords:MongoDB, Windows, NoSQL, MongoDB installation, MongoDB commands, MongoDB Compass, MongoDB shell, JSON database",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Starting Mongo Db.PNG",
+        "category": "Mongo Db"
+    }
+     ,
+    {
+        "title": "Introduction to MongoDB and Compass",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/08/using-mongo-db-compass.html",
+        "desc": "MongoDB is a popular NoSQL database that stores data in flexible, JSON-like documents. Unlike traditional SQL databases, it doesn't require predefined schemas. This makes MongoDB especially useful for modern applications that deal with large, evolving, or unstructured datasets — such as those used in mobile apps, real-time analytics, IoT, or e-commerce platforms.",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Introduction to MongoDB and Compass.PNG",
+        "category": "Mongo Db"
+    }
+     ,
+    {
+        "title": "Introduction to MongoDB and Compass",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/08/mongo-db-queries.html",
+        "desc": "Mastering MongoDB Queries: Insert, Find, Update, Delete and More MongoDB is a powerful NoSQL database that uses a flexible, document-based model. In this guide, you’ll learn how to use key MongoDB queries including: Insert, Find, Update, and Delete. This is perfect for beginners and those switching from SQL to NoSQL",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Starting Mongo Db Queries.PNG",
+        "category": "Mongo Db"
+    }
 ]
