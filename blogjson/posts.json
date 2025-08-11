@@ -104,4 +104,13 @@
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Worker Search Project.PNG",
         "category": "Project"
     }
+
+    ,
+    {
+        "title": "State Management by Provider in Flutter",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2022/04/how-to-use-provider-in-flutter-simplest_01006895535.html",
+        "desc": "What is Provider?  Provider is a wrapper around InheritedWidget, allowing efficient and scalable state management. It's officially recommended by Google for managing state and dependencies in Flutter.",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Provider based state management.PNG",
+        "category": "Flutter"
+    }
 ]
