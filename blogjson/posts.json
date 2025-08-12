@@ -112,5 +112,19 @@
         "desc": "What is Provider?  Provider is a wrapper around InheritedWidget, allowing efficient and scalable state management. It's officially recommended by Google for managing state and dependencies in Flutter.",
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Provider based state management.PNG",
         "category": "Flutter"
+    } ,
+    {
+        "title": "Understanding Regular Expressions in JavaScript",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/javascript-regex-playground.html",
+        "desc": "Understanding JavaScript Regular Expressions. In JavaScript, a regular expression (or RegExp) is a pattern used to match character combinations in strings. You define them using a special syntax that starts and ends with forward slashes: /pattern/flags.",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Regex in JavaScript.PNG",
+        "category": "JavaScript"
+    },
+    {
+        "title": "Validation using JavaScript",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/08/validation-using-javascript.html",
+        "desc": "This post demonstrates how to validate user input using JavaScript in two ways:Directly when a button is clicked (without form submission) submission We’ll use HTML attributes like required along with JavaScript functions for extra checks",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Validation using JavaScript.PNG",
+        "category": "JavaScript"
     }
 ]
