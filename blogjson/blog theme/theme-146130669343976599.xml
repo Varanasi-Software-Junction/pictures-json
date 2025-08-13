@@ -107,7 +107,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
     fixedSidebar = true,
     fixedMenu = true,
     commentsSystem = "blogger",
-    disqusShortname = "vsj";
+     
 //]]>
 </script>
 
@@ -2188,41 +2188,18 @@ transition: background-color 3s;
               <b:widget-setting name='content'><![CDATA[<iframe src="https://calendar.google.com/calendar/embed?src=e6ej58tn1nacmomaf3qnpp8hkc%40group.calendar.google.com&ctz=Asia%2FKolkata" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>]]></b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
-<script type='text/javascript'>
-var disqus_shortname = &#39;varanasisoftwarejunction-blogspot-com&#39;;
-var disqus_blogger_current_url = &quot;<data:blog.canonicalUrl/>&quot;;
-if (!disqus_blogger_current_url.length) {
-disqus_blogger_current_url = &quot;<data:blog.url/>&quot;;
-}
-var disqus_blogger_homepage_url = &quot;<data:blog.homepageUrl/>&quot;;
-var disqus_blogger_canonical_homepage_url = &quot;<data:blog.canonicalHomepageUrl/>&quot;;
-</script>
+
+ 
 <b:if cond='data:blog.pageType == &quot;item&quot;'>
 <style type='text/css'>
 #comments {display:none;}
 </style>
-<script type='text/javascript'>
-(function() {
-    var bloggerjs = document.createElement(&#39;script&#39;);
-    bloggerjs.type = &#39;text/javascript&#39;;
-    bloggerjs.async = true;
-    bloggerjs.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/blogger_item.js&#39;;
-    (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(bloggerjs);
-})();
-</script>
+ 
 </b:if>
 <style type='text/css'>
 .post-comment-link { visibility: hidden; }
 </style>
-<script type='text/javascript'>
-(function() {
-var bloggerjs = document.createElement(&#39;script&#39;);
-bloggerjs.type = &#39;text/javascript&#39;;
-bloggerjs.async = true;
-bloggerjs.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/blogger_index.js&#39;;
-(document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(bloggerjs);
-})();
-</script>
+
 </b:includable>
           </b:widget>
           <b:widget id='ContactForm1' locked='false' title='Contact Varanasi Software Junction' type='ContactForm' visible='false'>
