@@ -103,21 +103,26 @@
         "desc": "This post provides a ready-to-use database schema and a simple ER diagram for a marketplace-style service app. The schema includes additional tables for payments, notifications, and locations. Use these SQL snippets to create the tables or adapt them for your preferred RDBMS (MySQL / MariaDB / PostgreSQL).",
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Worker Search Project.PNG",
         "category": "Project"
-    }
-
-    ,
+    },
     {
         "title": "State Management by Provider in Flutter",
         "link": "https://varanasisoftwarejunction.blogspot.com/2022/04/how-to-use-provider-in-flutter-simplest_01006895535.html",
         "desc": "What is Provider?  Provider is a wrapper around InheritedWidget, allowing efficient and scalable state management. It's officially recommended by Google for managing state and dependencies in Flutter.",
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Provider based state management.PNG",
         "category": "Flutter"
-    } ,
+    },
     {
         "title": "Understanding Regular Expressions in JavaScript",
         "link": "https://varanasisoftwarejunction.blogspot.com/2025/07/javascript-regex-playground.html",
         "desc": "Understanding JavaScript Regular Expressions. In JavaScript, a regular expression (or RegExp) is a pattern used to match character combinations in strings. You define them using a special syntax that starts and ends with forward slashes: /pattern/flags.",
         "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Regex in JavaScript.PNG",
+        "category": "JavaScript"
+    },
+    {
+        "title": "Validation using JavaScript",
+        "link": "https://varanasisoftwarejunction.blogspot.com/2025/08/validation-using-javascript.html",
+        "desc": "This post demonstrates how to validate user input using JavaScript in two ways:Directly when a button is clicked (without form submission) submission We’ll use HTML attributes like required along with JavaScript functions for extra checks",
+        "image": "https://varanasi-software-junction.github.io/pictures-json/blogpics/Validation using JavaScript.PNG",
         "category": "JavaScript"
     },
     {

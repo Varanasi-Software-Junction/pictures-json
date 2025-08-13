@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Varanasi Spiritual Tour",
+    "image": "images/varanasi.jpg",
+    "distance": "5 km",
+    "description": "Explore the ghats and temples of Varanasi with a local guide.",
+    "time": "4 hours",
+    "charges": "₹1200",
+    "stops": [
+      {
+        "name": "Assi Ghat",
+        "image": "images/assi.jpg",
+        "description": "A popular ghat where pilgrims take holy dips."
+      },
+      {
+        "name": "Dashashwamedh Ghat",
+        "image": "images/dashashwamedh.jpg",
+        "description": "Famous for its grand Ganga Aarti in the evening."
+      },
+      {
+        "name": "Kashi Vishwanath Temple",
+        "image": "images/kashi.jpg",
+        "description": "One of the most sacred temples dedicated to Lord Shiva."
+      }
+    ]
+  },
+  {
+    "name": "Agra Heritage Tour",
+    "image": "images/agra.jpg",
+    "distance": "220 km",
+    "description": "Visit the famous monuments of Agra and enjoy Mughal history.",
+    "time": "1 day",
+    "charges": "₹2500",
+    "stops": [
+      {
+        "name": "Taj Mahal",
+        "image": "images/tajmahal.jpg",
+        "description": "A UNESCO World Heritage Site and symbol of love."
+      },
+      {
+        "name": "Agra Fort",
+        "image": "images/agrafort.jpg",
+        "description": "A grand red sandstone fort built by the Mughals."
+      },
+      {
+        "name": "Mehtab Bagh",
+        "image": "images/mehtabbagh.jpg",
+        "description": "A garden complex with a view of the Taj Mahal."
+      }
+    ]
+  },
+  {
+    "name": "Jaipur Pink City Tour",
+    "image": "images/jaipur.jpg",
+    "distance": "280 km",
+    "description": "Discover the forts, palaces, and bazaars of Jaipur.",
+    "time": "1 day",
+    "charges": "₹3000",
+    "stops": [
+      {
+        "name": "Hawa Mahal",
+        "image": "images/hawamahal.jpg",
+        "description": "A stunning pink sandstone palace with intricate lattice work."
+      },
+      {
+        "name": "Amber Fort",
+        "image": "images/amberfort.jpg",
+        "description": "A magnificent fort with artistic Hindu-style elements."
+      },
+      {
+        "name": "City Palace",
+        "image": "images/citypalace.jpg",
+        "description": "A royal residence with museums and courtyards."
+      }
+    ]
+  }
+]
