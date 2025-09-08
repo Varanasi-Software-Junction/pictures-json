@@ -197,6 +197,8 @@ class _HomeShellState extends State<HomeShell> {
   @override
   Widget build(BuildContext context) {
     print("Building HomeShell with index $_index");
+    print("=$pages");
+    print("Pages 1 $pages[1]");
     return Scaffold(
       appBar: AppBar(title: Text('Quiz App')),
       body: IndexedStack(index: _index, children: pages),
@@ -294,6 +296,7 @@ class SubjectsPage extends StatelessWidget {
           itemCount: s.length,
           itemBuilder: (context, i) {
             final sub = s[i];
+            print("Sub Name: $sub.name");
             return Card(
               child: ListTile(
                 title: Text(sub.name),
