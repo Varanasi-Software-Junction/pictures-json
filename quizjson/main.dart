@@ -1,4 +1,4 @@
-// main.dart
+ // main.dart
 import 'dart:convert';
 import 'dart:async';
 import 'dart:html' as html;
@@ -168,6 +168,7 @@ class _QuizAppState extends State<QuizApp> {
 
   @override
   Widget build(BuildContext context) {
+    print("Quiz App started");
     return MaterialApp(
       title: 'Quiz App (TF)',
       theme: ThemeData(primarySwatch: Colors.blue),
@@ -195,6 +196,7 @@ class _HomeShellState extends State<HomeShell> {
 
   @override
   Widget build(BuildContext context) {
+    print("Building HomeShell with index $_index");
     return Scaffold(
       appBar: AppBar(title: Text('Quiz App')),
       body: IndexedStack(index: _index, children: pages),
@@ -238,8 +240,9 @@ class NewsPage extends StatelessWidget {
     return FutureBuilder<List<NewsItem>>(
       future: fetchNews(),
       builder: (context, snap) {
-        if (snap.connectionState != ConnectionState.done)
+        if (snap.connectionState != ConnectionState.done) {
           return Center(child: CircularProgressIndicator());
+        }
         final items = snap.data ?? [];
         if (items.isEmpty) return Center(child: Text('No news'));
         return ListView.builder(
@@ -276,8 +279,9 @@ class SubjectsPage extends StatelessWidget {
     return FutureBuilder<List<Subject>>(
       future: fetchSubjects(),
       builder: (context, snap) {
-        if (snap.connectionState != ConnectionState.done)
+        if (snap.connectionState != ConnectionState.done) {
           return Center(child: CircularProgressIndicator());
+        }
         final s = snap.data ?? [];
         if (s.isEmpty) return Center(child: Text('No subjects'));
         return ListView.builder(
@@ -324,8 +328,9 @@ class QuizzesPage extends StatelessWidget {
       body: FutureBuilder<List<QuizOverview>>(
         future: fetchQuizzes(),
         builder: (context, snap) {
-          if (snap.connectionState != ConnectionState.done)
+          if (snap.connectionState != ConnectionState.done) {
             return Center(child: CircularProgressIndicator());
+          }
           final list = snap.data ?? [];
           if (list.isEmpty) return Center(child: Text('No quizzes'));
           return ListView.builder(
@@ -428,12 +433,14 @@ class _QuizPageState extends State<QuizPage> {
       body: FutureBuilder<List<TFQuestion>>(
         future: _future,
         builder: (context, snap) {
-          if (snap.connectionState != ConnectionState.done)
+          if (snap.connectionState != ConnectionState.done) {
             return Center(child: CircularProgressIndicator());
+          }
           final qs = snap.data ?? [];
           if (qs.isEmpty) return Center(child: Text('No questions'));
-          if (_answers.length != qs.length)
+          if (_answers.length != qs.length) {
             _answers = List.filled(qs.length, -1);
+          }
 
           return ListView.builder(
             itemCount: qs.length + 1,
@@ -504,8 +511,9 @@ class _ResultsPageState extends State<ResultsPage> {
     return FutureBuilder<List<QuizAttempt>>(
       future: _future,
       builder: (context, snap) {
-        if (snap.connectionState != ConnectionState.done)
+        if (snap.connectionState != ConnectionState.done) {
           return Center(child: CircularProgressIndicator());
+        }
         final attempts = snap.data ?? [];
         if (attempts.isEmpty) return Center(child: Text('No attempts yet'));
         return ListView.builder(
