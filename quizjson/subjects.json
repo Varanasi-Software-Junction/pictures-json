@@ -2,11 +2,11 @@
   {
     "id": "math",
     "name": "Mathematics",
-    "quizzes_url": "https://your-site.github.io/data/quizzes_math.json"
+    "quizzes_url": "https://varanasi-software-junction.github.io/pictures-json/quizjson/quizzes_math.json"
   },
   {
     "id": "sci",
     "name": "Science",
-    "quizzes_url": "https://your-site.github.io/data/quizzes_science.json"
+    "quizzes_url": "https://varanasi-software-junction.github.io/pictures-json/quizjson/quizzes_science.json"
   }
 ]
