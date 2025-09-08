@@ -267,8 +267,12 @@ class NewsPage extends StatelessWidget {
 /// ------------------ Page 2: Subjects ------------------
 class SubjectsPage extends StatelessWidget {
   Future<List<Subject>> fetchSubjects() async {
+    print(  "Fetching subjects from $SUBJECTS_JSON_URL");
     final data = await Utils.download(SUBJECTS_JSON_URL);
-    if (data == null) return [];
+    if (data == null) {
+      print("Null data received");
+      return [];}
+      print("Not Null data received");
     return (data as List)
         .map((e) => Subject.fromJson(Map<String, dynamic>.from(e)))
         .toList();
@@ -283,7 +287,9 @@ class SubjectsPage extends StatelessWidget {
           return Center(child: CircularProgressIndicator());
         }
         final s = snap.data ?? [];
-        if (s.isEmpty) return Center(child: Text('No subjects'));
+        if (s.isEmpty) 
+        {return Center(child: Text('No subjects'));
+        }
         return ListView.builder(
           itemCount: s.length,
           itemBuilder: (context, i) {
