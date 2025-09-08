@@ -1,0 +1,10 @@
+{
+  "id": "s1",
+  "title": "Basic Science Quiz",
+  "questions": [
+    { "id": "q1", "text": "The Earth revolves around the Sun", "answer": true },
+    { "id": "q2", "text": "Water boils at 50°C at sea level", "answer": false },
+    { "id": "q3", "text": "Humans need oxygen to survive", "answer": true },
+    { "id": "q4", "text": "Sound travels faster than light", "answer": false }
+  ]
+}

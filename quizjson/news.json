@@ -1,0 +1,14 @@
+[
+  {
+    "id": "n1",
+    "title": "Welcome to Quiz App",
+    "summary": "Test your knowledge with True/False quizzes!",
+    "url": "https://your-site.github.io/news/welcome.html"
+  },
+  {
+    "id": "n2",
+    "title": "New Math Quiz Added",
+    "summary": "Check out the new Basic Math quiz.",
+    "url": "https://your-site.github.io/news/math-quiz.html"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "m1",
+    "title": "Basic Math True/False",
+    "description": "Simple arithmetic questions",
+    "questions_url": "https://your-site.github.io/data/questions_math_m1.json"
+  },
+  {
+    "id": "m2",
+    "title": "Advanced Math True/False",
+    "description": "Slightly tricky math questions",
+    "questions_url": "https://your-site.github.io/data/questions_math_m2.json"
+  }
+]

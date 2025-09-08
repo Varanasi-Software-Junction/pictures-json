@@ -1,0 +1,8 @@
+[
+  {
+    "id": "s1",
+    "title": "Basic Science Quiz",
+    "description": "True/False science questions",
+    "questions_url": "https://your-site.github.io/data/questions_science_s1.json"
+  }
+]

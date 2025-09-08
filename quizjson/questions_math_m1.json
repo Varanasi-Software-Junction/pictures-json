@@ -1,0 +1,10 @@
+{
+  "id": "m1",
+  "title": "Basic Math True/False",
+  "questions": [
+    { "id": "q1", "text": "2 + 2 = 4", "answer": true },
+    { "id": "q2", "text": "5 is an even number", "answer": false },
+    { "id": "q3", "text": "10 is greater than 20", "answer": false },
+    { "id": "q4", "text": "Square root of 9 is 3", "answer": true }
+  ]
+}
