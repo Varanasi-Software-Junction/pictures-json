@@ -1,4 +1,4 @@
- // main.dart
+// main.dart
 import 'dart:convert';
 import 'dart:async';
 import 'dart:html' as html;
@@ -170,6 +170,7 @@ class _QuizAppState extends State<QuizApp> {
   Widget build(BuildContext context) {
     print("Quiz App started");
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Quiz App (TF)',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: HomeShell(storage: storage),
@@ -201,20 +202,18 @@ class _HomeShellState extends State<HomeShell> {
     print("Pages 1 $pages[1]");
     return Scaffold(
       appBar: AppBar(title: Text('Quiz App')),
-      body: IndexedStack(index: _index, children: pages),
+      body:
+        Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _index,
-        onTap: (i) => setState(() => _index = i),
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.article), label: 'News'),
-          BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Subjects'),
-          BottomNavigationBarItem(icon: Icon(Icons.quiz), label: 'Quizzes'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer),
-            label: 'Quiz',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'Results'),
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Business'),
+          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
       ),
     );
   }
@@ -269,15 +268,18 @@ class NewsPage extends StatelessWidget {
 /// ------------------ Page 2: Subjects ------------------
 class SubjectsPage extends StatelessWidget {
   Future<List<Subject>> fetchSubjects() async {
-    print(  "Fetching subjects from $SUBJECTS_JSON_URL");
+    print("Fetching subjects from $SUBJECTS_JSON_URL");
     final data = await Utils.download(SUBJECTS_JSON_URL);
     if (data == null) {
       print("Null data received");
-      return [];}
-      print("Not Null data received");
-    return (data as List)
+      return [];
+    }
+    print("Not Null data received");
+    var x = (data as List)
         .map((e) => Subject.fromJson(Map<String, dynamic>.from(e)))
         .toList();
+    print("Subjects list $x");
+    return x;
   }
 
   @override
@@ -289,8 +291,8 @@ class SubjectsPage extends StatelessWidget {
           return Center(child: CircularProgressIndicator());
         }
         final s = snap.data ?? [];
-        if (s.isEmpty) 
-        {return Center(child: Text('No subjects'));
+        if (s.isEmpty) {
+          return Center(child: Text('No subjects'));
         }
         return ListView.builder(
           itemCount: s.length,
