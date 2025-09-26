@@ -1,231 +1,375 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Search & Filter Page</title>
-    <style>
-        body {
-            font-family: "Segoe UI", sans-serif;
-            background-color: #e0f2f1;
-            color: #004d40;
-            margin: 0;
-            padding: 2rem;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Linear Search Visualizer (uses v1.css)</title>
 
-        h1 {
-            text-align: center;
-            color: #00695c;
-        }
-
-        .search-box {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        input[type="text"] {
-            padding: 0.5rem;
-            width: 80%;
-            max-width: 400px;
-            border: 1px solid #009688;
-            border-radius: 4px;
-        }
-
-        .filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-            gap: 0.5rem;
-        }
-
-        .filters button {
-            padding: 0.5rem 1rem;
-            background-color: #009688;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .filters button.active {
-            background-color: #004d40;
-        }
-
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1rem;
-            padding: 1rem 0;
-        }
-
-        .card {
-            background: #ffffff;
-            border: 1px solid #b2dfdb;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeIn 0.6s forwards;
-        }
-
-        .card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 1rem;
-        }
-
-        .card-content h3 {
-            margin: 0 0 0.5rem;
-            color: #00796b;
-        }
-
-        .card-content p {
-            font-size: 0.9rem;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <!-- make sure this path points to your actual v1.css -->
+  <link rel="stylesheet" href="/path/to/crx_styles_v1.css">
 </head>
-
 <body>
+  <div class="crx_wrap" id="container">
 
-    <h1>Explore Posts</h1>
-    <div>
-        <button onclick="toggleDarkMode()" style="position:fixed;top:1rem;right:1rem;">🌓</button>
-
+    <!-- header -->
+    <div class="crx_header crx_card" id="headerCard" style="display:flex;align-items:center;gap:14px;">
+      <div id="logo" style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--crx-primary),var(--crx-primary-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;">
+        LS
+      </div>
+      <div>
+        <h1 id="pageTitle">Linear Search Visualizer</h1>
+        <div class="crx_small" id="pageLead">Search from left, search from right, or count all matches — step or autoplay.</div>
+      </div>
     </div>
-    <h1 style="text-align:center; margin-top:-1rem; color:#00796b;">
-        Filter posts by topic or search by keyword
-    </h1>
 
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search posts...">
-        <select id="sortSelect" onchange="renderCards()" style="margin-left: 1rem;">
-            <option value="default">Sort By</option>
-            <option value="az">Title A–Z</option>
-            <option value="za">Title Z–A</option>
+    <!-- controls card -->
+    <section class="crx_card" id="controlsCard" style="margin-top:12px;">
+      <div class="crx_controls" id="controls">
+        <input id="arrayInput" class="crx_input" type="text" placeholder="Enter numbers, e.g. 10,20,30,40,50" style="min-width:260px;padding:10px;border-radius:8px;border:1px solid var(--crx-border)" />
+        <input id="targetInput" class="crx_input" type="text" placeholder="Target, e.g. 30" style="min-width:160px;padding:10px;border-radius:8px;border:1px solid var(--crx-border)" />
+        <select id="modeSelect" aria-label="Search mode" style="padding:8px;border-radius:8px;border:1px solid var(--crx-border)">
+          <option value="left">Search from Left (first match)</option>
+          <option value="right">Search from Right (first match)</option>
+          <option value="count">Count All Matches (scan all)</option>
         </select>
 
-    </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button id="buildBtn" class="crx_btn">Build Array</button>
+          <button id="startBtn" class="crx_btn secondary">Start</button>
+          <button id="stepBtn" class="crx_btn secondary">Next Step</button>
+          <button id="resetBtn" class="crx_btn secondary">Reset</button>
+        </div>
 
-    <div class="filters" id="categoryFilters">
-        <!-- Dynamic category buttons will appear here -->
-    </div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+          <label for="speed" class="crx_small">Speed</label>
+          <input id="speed" type="range" min="200" max="1600" value="800" />
+        </div>
+      </div>
+    </section>
 
-    <div class="card-container" id="cardContainer">
-        <!-- Cards will be loaded here -->
-    </div>
+    <!-- visualizer card -->
+    <section class="crx_card crx_visual_container" id="visualCard" style="margin-top:12px;">
+      <!-- arrayRow: using inline-flex for proper layout; children are .crx_box (we override absolute via inline style) -->
+      <div id="arrayRow" role="list" aria-live="polite" style="display:flex;gap:12px;align-items:center;justify-content:center;padding:18px;flex-wrap:wrap;">
+        <!-- boxes inserted here by JS -->
+      </div>
 
-    <script>
-        const searchInput = document.getElementById("searchInput");
-        const cardContainer = document.getElementById("cardContainer");
-        const categoryFilters = document.getElementById("categoryFilters");
+      <!-- arrow (simple) -->
+      <div id="arrow" style="height:18px;margin-top:10px;position:relative;">
+        <div id="arrowLine" style="height:6px;background:var(--crx-border);border-radius:6px;position:relative;"></div>
+        <div id="arrowTip" style="position:absolute;top:-6px;left:0;width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:14px solid var(--crx-primary);transition:left .18s ease;"></div>
+      </div>
 
-        let data = [];
-        let currentCategory = "All";
+      <!-- status / stats -->
+      <div id="statusRow" style="display:flex;gap:12px;align-items:center;margin-top:10px;">
+        <div id="statusText" class="crx_status">Status: Idle</div>
+        <div id="foundText" class="crx_status" aria-live="polite"></div>
+        <div style="margin-left:auto;display:flex;gap:12px;align-items:center;color:var(--crx-muted);">
+          <div>Mode: <strong id="modeLabel">—</strong></div>
+          <div>Comparisons: <strong id="compLabel">0</strong></div>
+          <div>Matches: <strong id="matchLabel">0</strong></div>
+        </div>
+      </div>
 
-        // Fetch JSON data hosted on GitHub
-        fetch("https://varanasi-software-junction.github.io/pictures-json/blogjson/posts.json")
-            .then(response => response.json())
-            .then(json => {
-                data = json;
-                renderFilters();
-                renderCards();
-            });
+      <!-- trace -->
+      <div id="trace" class="crx_output" aria-live="polite" style="margin-top:12px;min-height:90px;">
+        Console trace...
+      </div>
 
-        function renderFilters() {
-            const categories = ["All", ...new Set(data.map(item => item.category))];
-            categoryFilters.innerHTML = categories.map(cat => `
-        <button class="${cat === "All" ? "active" : ""}" onclick="filterByCategory('${cat}')">${cat}</button>
-      `).join('');
-        }
+      <footer id="visualFooter" style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;">
+        <div class="crx_small">Tip: click a box to set it as target. Use Next Step for manual stepping.</div>
+        <div class="crx_small">Learning • crx theme</div>
+      </footer>
+    </section>
+  </div>
 
-        function filterByCategory(category) {
-            currentCategory = category;
-            document.querySelectorAll(".filters button").forEach(btn => {
-                btn.classList.toggle("active", btn.textContent === category);
-            });
-            renderCards();
-        }
+<script>
+/* Linear Search Visualizer — adapted to use your v1.css classes
+   - cells are rendered as elements with class "crx_box"
+   - state attributes: data-current, data-found, data-notfound
+   - You can add further styling in v1.css using these attributes, e.g.:
+       #arrayRow [data-current] { outline: 3px solid rgba(11,94,215,0.12); transform: translateY(-6px); }
+       #arrayRow [data-found] { background: linear-gradient(180deg,#e6fff1,#dfffe6); color: var(--crx-primary-dark); }
+*/
 
-        function toggleDarkMode() {
-            // alert();
-            document.body.classList.toggle("dark-mode");
-        }
+(() => {
+  // UI refs
+  const arrayInput = document.getElementById('arrayInput');
+  const targetInput = document.getElementById('targetInput');
+  const modeSelect = document.getElementById('modeSelect');
+  const buildBtn = document.getElementById('buildBtn');
+  const startBtn = document.getElementById('startBtn');
+  const stepBtn = document.getElementById('stepBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const arrayRow = document.getElementById('arrayRow');
+  const trace = document.getElementById('trace');
+  const statusText = document.getElementById('statusText');
+  const foundText = document.getElementById('foundText');
+  const compLabel = document.getElementById('compLabel');
+  const matchLabel = document.getElementById('matchLabel');
+  const modeLabel = document.getElementById('modeLabel');
+  const arrowTip = document.getElementById('arrowTip');
+  const speed = document.getElementById('speed');
 
-        function renderCards() {
-            const query = searchInput.value.toLowerCase();
-            cardContainer.innerHTML = "";
+  // state
+  let arr = [];
+  let target = '';
+  let mode = 'left';
+  let i = 0;
+  let running = false;
+  let timer = null;
+  let comparisons = 0;
+  let matches = 0;
+  let foundIndex = -1;
+  let built = false;
+  let direction = 1;
 
-            const filtered = data.filter(item => {
-                const matchesText = item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query);
-                const matchesCategory = currentCategory === "All" || item.category === currentCategory;
+  // helpers
+  function parseArrayInput(text) {
+    if (!text || !text.trim()) return [];
+    return text.split(',')
+      .map(s => s.trim())
+      .filter(s => s !== '')
+      .map(s => (!isNaN(s) && s !== '') ? Number(s) : s);
+  }
 
+  function log(msg) {
+    const time = new Date().toLocaleTimeString();
+    trace.innerHTML += `[${time}] ${msg}<br>`;
+    trace.scrollTop = trace.scrollHeight;
+  }
 
-                return matchesText && matchesCategory;
-            });
+  function resetState() {
+    clearInterval(timer);
+    timer = null;
+    running = false;
+    i = 0;
+    comparisons = 0;
+    matches = 0;
+    foundIndex = -1;
+    compLabel.textContent = '0';
+    matchLabel.textContent = '0';
+    foundText.textContent = '';
+    statusText.textContent = 'Status: Idle';
+    startBtn.textContent = 'Start';
+  }
 
-            if (filtered.length === 0) {
-                cardContainer.innerHTML = "<p>No results found.</p>";
-                return;
-            }
+  function escapeHtml(s){ return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
 
-            filtered.forEach((item, i) => {
-                const card = document.createElement("div");
-                card.className = "card";
-                card.style.animationDelay = `${i * 0.05}s`;
+  // Render array as .crx_box elements. We apply inline styles to make them flow horizontally
+  function renderArray() {
+    arrayRow.innerHTML = '';
+    arr.forEach((val, idx) => {
+      const box = document.createElement('div');
+      box.className = 'crx_box';
+      // override absolute positioning from v1.css so boxes flow in row:
+      box.style.position = 'static';
+      box.style.minWidth = '84px';
+      box.style.height = '64px';
+      box.style.display = 'flex';
+      box.style.alignItems = 'center';
+      box.style.justifyContent = 'center';
+      box.style.borderRadius = '10px';
+      box.style.padding = '8px';
+      box.style.boxSizing = 'border-box';
+      box.style.cursor = 'pointer';
+      box.style.userSelect = 'none';
+      // light default background using CSS variables
+      box.style.background = 'linear-gradient(180deg, #fff, var(--crx-surface-weak))';
+      box.style.color = '#071022';
+      box.dataset.index = idx;
+      box.dataset.value = String(val);
+      box.setAttribute('role','button');
+      box.innerHTML = `<div style="font-weight:800;font-size:18px">${escapeHtml(String(val))}</div>`;
+      arrayRow.appendChild(box);
+    });
+    positionArrowAtIndex(i);
+  }
 
-                card.innerHTML = `
-          <img src="${item.image}" alt="${item.title}">
-          <div class="card-content">
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-            <a href="${item.link}" target="_blank">Open</a>
-          </div>
-        `;
-                const sortValue = document.getElementById("sortSelect")?.value;
-                if (sortValue === "az") filtered.sort((a, b) => a.title.localeCompare(b.title));
-                if (sortValue === "za") filtered.sort((a, b) => b.title.localeCompare(a.title));
+  function positionArrowAtIndex(index) {
+    const boxes = Array.from(arrayRow.children);
+    if (boxes.length === 0) {
+      arrowTip.style.left = '0%';
+      return;
+    }
+    let clamped = Math.max(0, Math.min(boxes.length - 1, index));
+    const targetBox = boxes[clamped];
+    const parentRect = arrayRow.getBoundingClientRect();
+    const boxRect = targetBox.getBoundingClientRect();
+    const leftPx = (boxRect.left + boxRect.width * 0.9) - parentRect.left;
+    const totalWidth = parentRect.width || 1;
+    const pct = Math.max(0, Math.min(100, (leftPx / totalWidth) * 100));
+    arrowTip.style.left = pct + '%';
+  }
 
-                cardContainer.appendChild(card);
-            });
-        }
+  function clearMarks() {
+    Array.from(arrayRow.children).forEach(c => {
+      c.removeAttribute('data-current');
+      c.removeAttribute('data-found');
+      c.removeAttribute('data-notfound');
+      c.classList.remove('crx_highlight');
+      // reset inline visuals if any
+      c.style.boxShadow = '';
+      c.style.border = '';
+    });
+    positionArrowAtIndex(i);
+  }
 
-        searchInput.addEventListener("input", renderCards);
-    </script>
-    <style>
-        .dark-mode {
-            background-color: #263238;
-            color: #ffffff;
-        }
+  function highlightCurrent(index) {
+    const boxes = Array.from(arrayRow.children);
+    boxes.forEach((b, idx) => {
+      b.removeAttribute('data-current');
+      b.classList.remove('crx_highlight');
+      b.style.transform = '';
+    });
+    if (boxes[index]) {
+      boxes[index].setAttribute('data-current','true');
+      boxes[index].classList.add('crx_highlight');
+      boxes[index].style.transform = 'translateY(-6px)';
+    }
+    positionArrowAtIndex(index);
+  }
 
-        .dark-mode .card {
-            background: #37474f;
-            border-color: #455a64;
-        }
+  function markFound(index) {
+    const boxes = Array.from(arrayRow.children);
+    if (boxes[index]) {
+      boxes[index].setAttribute('data-found','true');
+      boxes[index].classList.remove('crx_highlight');
+      // inline green hint so it shows without editing v1.css:
+      boxes[index].style.background = 'linear-gradient(180deg,#e6fff1,#dfffe6)';
+      boxes[index].style.border = '1px solid var(--crx-success)';
+      boxes[index].style.color = 'var(--crx-primary-dark)';
+    }
+  }
 
-        .dark-mode input,
-        .dark-mode select {
-            background: #455a64;
-            color: #fff;
-            border-color: #607d8b;
-        }
-    </style>
+  function markNotFound(index) {
+    const boxes = Array.from(arrayRow.children);
+    if (boxes[index]) {
+      boxes[index].setAttribute('data-notfound','true');
+      boxes[index].style.background = 'linear-gradient(180deg,#fff0f0,#ffecec)';
+      boxes[index].style.border = '1px solid var(--crx-danger)';
+    }
+  }
+
+  function doStep() {
+    if (!built) { log('Build the array first.'); return; }
+    const n = arr.length;
+    if (n === 0) { statusText.textContent = 'Status: Empty array'; running=false; clearInterval(timer); return; }
+
+    if (mode === 'left' || mode === 'count') {
+      if (i >= n) {
+        statusText.textContent = (mode === 'count') ? `Status: Done — ${matches} match(es)` : 'Status: Not Found';
+        if (mode === 'count') { matchLabel.textContent = String(matches); log(`Count complete. Total matches: ${matches}`); }
+        else log('Search complete — not found.');
+        running=false; clearInterval(timer); startBtn.textContent='Start'; return;
+      }
+    } else if (mode === 'right') {
+      if (i < 0) {
+        statusText.textContent = 'Status: Not Found';
+        running=false; clearInterval(timer); startBtn.textContent='Start'; log('Right-search complete — not found.'); return;
+      }
+    }
+
+    highlightCurrent(i);
+    comparisons++; compLabel.textContent = String(comparisons);
+    const currentVal = arr[i];
+    const isMatch = (Number(currentVal) === Number(target));
+    log(`Compare index ${i} (value=${JSON.stringify(currentVal)}) with target ${JSON.stringify(target)} — ${isMatch ? 'MATCH' : 'no match'}`);
+
+    if (isMatch) {
+      matches++; matchLabel.textContent = String(matches);
+      markFound(i); foundIndex = i; foundText.textContent = `Match at index ${i}`; statusText.textContent = 'Status: Found';
+      if (mode === 'left' || mode === 'right') {
+        running=false; clearInterval(timer); startBtn.textContent='Start'; log(`Stopped at first match (index ${i}). Comparisons: ${comparisons}`); return;
+      } else {
+        i += direction; return;
+      }
+    } else {
+      markNotFound(i); i += direction; return;
+    }
+  }
+
+  // Event handlers
+  buildBtn.addEventListener('click', () => {
+    arr = parseArrayInput(arrayInput.value);
+    target = targetInput.value.trim();
+    mode = modeSelect.value;
+    modeLabel.textContent = mode.toUpperCase();
+    direction = (mode === 'right') ? -1 : 1;
+    resetState(); clearMarks(); built = true;
+    i = (mode === 'right') ? arr.length - 1 : 0;
+    renderArray();
+    log(`Built array (${arr.length} items). Mode: ${mode}. Target: ${JSON.stringify(target)}`);
+    statusText.textContent = 'Status: Ready';
+  });
+
+  startBtn.addEventListener('click', () => {
+    if (!built) { log('Build the array first.'); return; }
+    mode = modeSelect.value; modeLabel.textContent = mode.toUpperCase(); direction = (mode === 'right') ? -1 : 1;
+    if (running) { running=false; clearInterval(timer); startBtn.textContent='Start'; statusText.textContent='Status: Paused'; log('Paused'); return; }
+    running=true; startBtn.textContent='Pause'; statusText.textContent='Status: Running';
+    const interval = Number(speed.value) || 800;
+    clearInterval(timer);
+    timer = setInterval(() => { doStep(); }, interval);
+    log('Started auto-play');
+  });
+
+  stepBtn.addEventListener('click', () => {
+    if (!built) { log('Build the array first.'); return; }
+    if (running) { log('Pause auto-play to use step mode.'); return; }
+    doStep();
+  });
+
+  resetBtn.addEventListener('click', () => {
+    resetState(); built=false; arr=[]; log('Reset visualizer.');
+    arrayRow.innerHTML=''; trace.innerHTML='Console trace...<br>';
+    statusText.textContent='Status: Idle'; modeLabel.textContent='—'; compLabel.textContent='0'; matchLabel.textContent='0';
+    foundText.textContent=''; arrayInput.value=''; targetInput.value=''; modeSelect.value='left'; positionArrowAtIndex(0);
+  });
+
+  // clicking a box sets target
+  arrayRow.addEventListener('click', (e) => {
+    const cell = e.target.closest('[data-index]');
+    if (!cell) return;
+    targetInput.value = cell.getAttribute('data-value');
+    log(`Target set to ${JSON.stringify(cell.getAttribute('data-value'))} (from click)`);
+  });
+
+  speed.addEventListener('input', () => {
+    if (!running) return;
+    clearInterval(timer);
+    timer = setInterval(() => { doStep(); }, Number(speed.value));
+  });
+
+  // initial sample
+  (function seedExample(){
+    arrayInput.value = '10,20,30,40,50';
+    targetInput.value = '50';
+    modeSelect.value = 'left';
+    buildBtn.click();
+  })();
+
+  [arrayInput, targetInput].forEach(inp => {
+    inp.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') buildBtn.click();
+    });
+  });
+
+  // Public API
+  window.lsearch = {
+    build: () => buildBtn.click(),
+    start: () => startBtn.click(),
+    step: () => stepBtn.click(),
+    reset: () => resetBtn.click(),
+    setArray: (a) => { arrayInput.value = Array.isArray(a) ? a.join(',') : String(a); buildBtn.click(); },
+    setTarget: (t) => { targetInput.value = String(t); },
+    setMode: (m) => { modeSelect.value = m; },
+  };
+
+})();
+</script>
 </body>
-
 </html>
+
+
