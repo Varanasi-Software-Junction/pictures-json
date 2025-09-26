@@ -1,0 +1,6 @@
+{
+  "quizzes": [
+    { "id": 1, "title": "Math Basics" },
+    { "id": 2, "title": "Algebra True/False" }
+  ]
+}

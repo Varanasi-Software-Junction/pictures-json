@@ -1,0 +1,6 @@
+{
+  "subjects": [
+    { "id": 1, "name": "Mathematics" },
+    { "id": 2, "name": "Science" }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "questions": [
+    { "id": 1, "text": "2 + 2 = 4", "answer": true },
+    { "id": 2, "text": "5 is even", "answer": false }
+  ]
+}
