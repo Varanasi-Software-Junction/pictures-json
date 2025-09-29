@@ -1,6 +1,19 @@
 {
   "news": [
-    { "id": 1, "title": "New Quiz Platform", "body": "We launched a new quiz platform." },
-    { "id": 2, "title": "Weekly Update", "body": "More quizzes added this week." }
+    {
+      "id": 1,
+      "title": "New Quiz Platform",
+      "body": "We launched a new quiz platform."
+    },
+    {
+      "id": 2,
+      "title": "Weekly Update",
+      "body": "More quizzes added this week."
+    },
+    {
+      "id": 3,
+      "title": "Piyush got Chashma",
+      "body": "More quizzes added this week."
+    }
   ]
 }
