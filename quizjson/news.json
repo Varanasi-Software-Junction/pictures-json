@@ -1,34 +1,32 @@
-[
-  {
-    "id": "n1",
-    "title": "Welcome to Quiz App",
-    "summary": "Test your knowledge with True/False quizzes!",
-    "details": "This app allows you to take various True/False quizzes to challenge your knowledge on different topics. Enjoy learning and have fun!"
-  },
-  {
-    "id": "n2",
-    "title": "New Math Quiz Added",
-    "summary": "Check out the new Basic Math quiz.",
-    "details": "A new quiz focusing on basic math concepts has been added. Test your arithmetic skills and improve your math knowledge!"
-  },
-  {
-    "id": "n3",
-    "title": "Kishan is from Bhadohi",
-    "summary": "Check out the new Basic Math quiz.",
-    "details": "A new quiz focusing on basic math concepts has been added. Test your arithmetic skills and improve your math knowledge!"
-  },
-  {
-    "id": "n4",
-    "title": "Maggi party by Piyush",
-    "summary": "Check out the new Basic Math quiz.",
-    "details": "A new quiz focusing on basic math concepts has been added. Test your arithmetic skills and improve your math knowledge!"
-  } ,
-  {
-    "id": "n5",
-    "title": "क गोदौलिया, बेनियाबाग से नई सड़क, गिरजाघर चौराहा, रामापुरा, ।
-",
-    "summary": "ाशी विश्वनाथ मंदिर और दशाश्वमेध घाट तथा गोदौलिया मार्ग पर पर्यटकों एवं श्रद्धालुओं की भीड़ रहती है। ऐसे में मैदागिन से.",
-    "details": "जंगमबाड़ी, सोनारपुरा और भेलूपुर में वाहनों का काफी दबाव रहता है। जो शाम के समय और बढ़ जाता हैkills and improve your math knowledge!"
-  }
-  
+ [
+{
+"id": "n1",
+"title": "Welcome to Quiz App",
+"summary": "Test your knowledge with True/False quizzes!",
+"details": "This app allows you to take various True/False quizzes to challenge your knowledge on different topics. Enjoy learning and have fun!"
+},
+{
+"id": "n2",
+"title": "New Math Quiz Added",
+"summary": "Check out the new Basic Math quiz.",
+"details": "A new quiz focusing on basic math concepts has been added. Test your arithmetic skills and improve your math knowledge!"
+},
+{
+"id": "n3",
+"title": "Kishan is from Bhadohi",
+"summary": "Check out the new Basic Math quiz.",
+"details": "A new quiz focusing on basic math concepts has been added. Test your arithmetic skills and improve your math knowledge!"
+},
+{
+"id": "n4",
+"title": "Maggi party by Piyush",
+"summary": "Check out the new Basic Math quiz.",
+"details": "A new quiz focusing on basic math concepts has been added. Test your arithmetic skills and improve your math knowledge!"
+},
+{
+"id": "n5",
+"title": "क गोदौलिया, बेनियाबाग से नई सड़क, गिरजाघर चौराहा, रामापुरा",
+"summary": "ाशी विश्वनाथ मंदिर और दशाश्वमेध घाट तथा गोदौलिया मार्ग पर पर्यटकों एवं श्रद्धालुओं की भीड़ रहती है। ऐसे में मैदागिन से.",
+"details": "जंगमबाड़ी, सोनारपुरा और भेलूपुर में वाहनों का काफी दबाव रहता है। जो शाम के समय और बढ़ जाता हैkills and improve your math knowledge!"
+}
 ]
